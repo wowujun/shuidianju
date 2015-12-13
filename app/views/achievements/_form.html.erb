@@ -1,0 +1,85 @@
+<%= form_for(@achievement) do |f| %>
+  <% if @achievement.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@achievement.errors.count, "error") %> prohibited this achievement from being saved:</h2>
+
+      <ul>
+      <% @achievement.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :projectitem %><br>
+    <%= f.text_field :projectitem %>
+  </div>
+  <div class="field">
+    <%= f.label :time %><br>
+    <%= f.text_field :time %>
+  </div>
+  <div class="field">
+    <%= f.label :contractsum %><br>
+    <%= f.text_field :contractsum %>
+  </div>
+  <div class="field">
+    <%= f.label :owner %><br>
+    <%= f.text_field :owner %>
+  </div>
+  <div class="field">
+    <%= f.label :proabstract %><br>
+    <%= f.text_field :proabstract %>
+  </div>
+  <div class="field">
+    <%= f.label :contractcla %><br>
+    <%= f.number_field :contractcla %>
+  </div>
+  <div class="field">
+    <%= f.label :nation %><br>
+    <%= f.text_field :nation %>
+  </div>
+  <div class="field">
+    <%= f.label :enexploit %><br>
+    <%= f.text_field :enexploit %>
+  </div>
+  <div class="field">
+    <%= f.label :cla_id %><br>
+    <%= f.number_field :cla_id %>
+  </div>
+  <div class="field">
+    <%= f.label :bidletter %><br>
+    <%= f.text_area :bidletter %>
+  </div>
+  <div class="field">
+    <%= f.label :protocal %><br>
+    <%= f.text_area :protocal %>
+  </div>
+  <div class="field">
+    <%= f.label :completcert %><br>
+    <%= f.text_area :completcert %>
+  </div>
+  <div class="field">
+    <%= f.label :owncert %><br>
+    <%= f.text_area :owncert %>
+  </div>
+  <div class="field">
+    <%= f.label :receport %><br>
+    <%= f.text_area :receport %>
+  </div>
+  <div class="field">
+    <%= f.label :consortium %><br>
+    <%= f.text_area :consortium %>
+  </div>
+  <div class="field">
+    <%= f.label :image %><br>
+    <%= f.text_area :image %>
+  </div>
+  <div class="field">
+    <%= f.label :other %><br>
+    <%= f.text_area :other %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

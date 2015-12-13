@@ -1,0 +1,1 @@
+json.extract! @achievement, :id, :projectitem, :time, :contractsum, :owner, :proabstract, :contractcla, :nation, :enexploit, :cla_id, :bidletter, :protocal, :completcert, :owncert, :receport, :consortium, :image, :other, :created_at, :updated_at

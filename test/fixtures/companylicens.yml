@@ -1,0 +1,41 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  compan_id: 1
+  buslicen: MyText
+  finastate: MyText
+  qualicert: MyText
+  orgchart: MyText
+  safelicen: MyText
+  forconmanquacert: MyText
+  statut: MyText
+  threesyscert: MyText
+  taxcert: MyText
+  creditrat: MyText
+  finastatement: MyText
+  orgcode: MyText
+  nolitproof: MyText
+  nobankcert: MyText
+  comcontract: MyText
+  other: MyText
+  certofaward: MyText
+
+two:
+  compan_id: 1
+  buslicen: MyText
+  finastate: MyText
+  qualicert: MyText
+  orgchart: MyText
+  safelicen: MyText
+  forconmanquacert: MyText
+  statut: MyText
+  threesyscert: MyText
+  taxcert: MyText
+  creditrat: MyText
+  finastatement: MyText
+  orgcode: MyText
+  nolitproof: MyText
+  nobankcert: MyText
+  comcontract: MyText
+  other: MyText
+  certofaward: MyText

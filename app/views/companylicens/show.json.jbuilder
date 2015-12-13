@@ -1,0 +1,1 @@
+json.extract! @companylicen, :id, :compan_id, :buslicen, :finastate, :qualicert, :orgchart, :safelicen, :forconmanquacert, :statut, :threesyscert, :taxcert, :creditrat, :finastatement, :orgcode, :nolitproof, :nobankcert, :comcontract, :other, :certofaward, :created_at, :updated_at

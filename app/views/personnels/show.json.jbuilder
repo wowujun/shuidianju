@@ -1,0 +1,1 @@
+json.extract! @personnel, :id, :name, :sex, :birthday, :worktime, :professional, :degree, :school, :protitle, :diploma, :acdegree, :qualit, :idcart, :safecert, :notary, :other, :created_at, :updated_at

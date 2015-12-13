@@ -1,0 +1,146 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- main container -->
+<div class="content">
+
+
+
+  <div class="container-fluid">
+    <div id="pad-wrapper" class="new-user">
+      <div class="row-fluid" style="margin-bottom: 20px;margin-top: -30px ">
+        <h3>人员信息</h3>
+      </div>
+
+      <%= form_for(@personnel) do |f| %>
+          <% if @personnel.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(@personnel.errors.count, "error") %> prohibited this personnel from being saved:</h2>
+
+                <ul>
+                  <% @personnel.errors.full_messages.each do |message| %>
+                      <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+          <% end %>
+      <div class="row-fluid form-wrapper">
+        <!-- left column -->
+        <div class="span9 with-sidebar">
+          <div class="container">
+            <form class="new_user_form inline-input" />
+            <div class="span12 field-box">
+              <label><%= f.label :姓名 %></label>
+              <%= f.text_field :name ,class:"span9"%>
+            </div>
+            <div class="span12 field-box">
+              <label><%= f.label :sex %></label>
+              <div class="ui-select span5">
+                <select>
+                  <option value="1" />男
+                  <option value="2" />女
+                </select>
+              </div>
+            </div>
+            <div class="span12 field-box">
+              <label><%= f.label :birthday %></label>
+              <%= f.datetime_select :birthday ,:class =>"form-control"%>
+            </div>
+            <div class="span12 field-box">
+              <label><%= f.label :worktime %></label>
+              <%= f.datetime_select :worktime %>
+            </div>
+            <div class="span12 field-box">
+              <label> <%= f.label :professional %></label>
+      <%= f.text_field :professional ,class:"span9"%>
+            </div>
+            <div class="span12 field-box">
+              <label><%= f.label :degree %></label>
+     <%= f.text_field :degree ,class:"span9" %>
+            </div>
+            <div class="span12 field-box">
+              <%= f.label :school %></label>
+              <%= f.text_field :school ,class:"span9" %>
+            </div>
+            <div class="span12 field-box">
+              <label><%= f.label :protitle %></label>
+              <%= f.text_field :protitle ,class:"span9" %>
+
+            </div>
+            <div class="span12 field-box">
+              <label> <%= f.label :diploma %></label>
+              <%= f.text_area :diploma ,class:"span9" %>
+            </div>
+            <div class="span12 field-box">
+              <label> <%= f.label :acdegree %></label>
+              <%= f.text_area :acdegree ,class:"span9" %>
+            </div>
+            <div class="span12 field-box">
+              <%= f.label :qualit %></label>
+              <%= f.text_area :qualit ,class:"span9" %>
+            </div>
+            <div class="span12 field-box">
+              <%= f.label :idcart %></label>
+              <%= f.text_area :idcart  ,class:"span9" %>
+            </div>
+            <div class="span12 field-box">
+              <label> <%= f.label :safecert %></label>
+              <%= f.text_area :safecert ,class:"span9" %>
+            </div>
+            <div class="span12 field-box">
+              <label><%= f.label :notary %></label>
+              <%= f.text_area :notary ,class:"span9" %>
+            </div>
+            <div class="span12 field-box">
+              <label><%= f.label :other %></label>
+              <%= f.text_area :other ,class:"span9" %>
+            </div>
+
+
+            <div class="span11 field-box actions">
+
+              <div class="actions">
+                <%= f.submit :"确定", class:"btn-glow primary" %>
+              </div>
+
+            </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- side right column -->
+        <div class="span3 form-sidebar pull-right">
+          <div class="btn-group toggle-inputs hidden-tablet">
+            <button class="glow left active" data-input="inline">INLINE INPUTS</button>
+            <button class="glow right" data-input="normal">NORMAL INPUTS</button>
+          </div>
+          <div class="alert alert-info hidden-tablet">
+            <i class="icon-lightbulb pull-left"></i>
+            Click above to see difference between inline and normal inputs on a form
+          </div>
+          <h6>Sidebar text for instructions</h6>
+          <p>Add multiple users at once</p>
+          <p>Choose one of the following file types:</p>
+          <ul>
+            <li><a href="#">Upload a vCard file</a></li>
+            <li><a href="#">Import from a CSV file</a></li>
+            <li><a href="#">Import from an Excel file</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          <%end%>
+<!-- end main container -->

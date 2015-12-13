@@ -1,0 +1,89 @@
+<%= form_for(@companylicen) do |f| %>
+  <% if @companylicen.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@companylicen.errors.count, "error") %> prohibited this companylicen from being saved:</h2>
+
+      <ul>
+      <% @companylicen.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :compan_id %><br>
+    <%= f.number_field :compan_id %>
+  </div>
+  <div class="field">
+    <%= f.label :buslicen %><br>
+    <%= f.text_area :buslicen %>
+  </div>
+  <div class="field">
+    <%= f.label :finastate %><br>
+    <%= f.text_area :finastate %>
+  </div>
+  <div class="field">
+    <%= f.label :qualicert %><br>
+    <%= f.text_area :qualicert %>
+  </div>
+  <div class="field">
+    <%= f.label :orgchart %><br>
+    <%= f.text_area :orgchart %>
+  </div>
+  <div class="field">
+    <%= f.label :safelicen %><br>
+    <%= f.text_area :safelicen %>
+  </div>
+  <div class="field">
+    <%= f.label :forconmanquacert %><br>
+    <%= f.text_area :forconmanquacert %>
+  </div>
+  <div class="field">
+    <%= f.label :statut %><br>
+    <%= f.text_area :statut %>
+  </div>
+  <div class="field">
+    <%= f.label :threesyscert %><br>
+    <%= f.text_area :threesyscert %>
+  </div>
+  <div class="field">
+    <%= f.label :taxcert %><br>
+    <%= f.text_area :taxcert %>
+  </div>
+  <div class="field">
+    <%= f.label :creditrat %><br>
+    <%= f.text_area :creditrat %>
+  </div>
+  <div class="field">
+    <%= f.label :finastatement %><br>
+    <%= f.text_area :finastatement %>
+  </div>
+  <div class="field">
+    <%= f.label :orgcode %><br>
+    <%= f.text_area :orgcode %>
+  </div>
+  <div class="field">
+    <%= f.label :nolitproof %><br>
+    <%= f.text_area :nolitproof %>
+  </div>
+  <div class="field">
+    <%= f.label :nobankcert %><br>
+    <%= f.text_area :nobankcert %>
+  </div>
+  <div class="field">
+    <%= f.label :comcontract %><br>
+    <%= f.text_area :comcontract %>
+  </div>
+  <div class="field">
+    <%= f.label :other %><br>
+    <%= f.text_area :other %>
+  </div>
+  <div class="field">
+    <%= f.label :certofaward %><br>
+    <%= f.text_area :certofaward %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
