@@ -4,7 +4,12 @@ class AchievementsController < ApplicationController
   # GET /achievements
   # GET /achievements.json
   def index
-    @achievements = Achievement.all
+    if !params[:search]||params[:search]==""
+      @achievements  = Achievement.all
+    else
+      @achievements  = Achievement.find_by_sql("select * from achievements where Sex like '%"+params[:search]+"%' or Name like '%"+params[:search]+"%' or professional like '%"+params[:search]+"%' or Degree like '%"+params[:search]+"%' or School like '%"+params[:search]+"%' or Protitle like '%"+params[:search]+"%' ")
+
+    end
   end
 
   # GET /achievements/1

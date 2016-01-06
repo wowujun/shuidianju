@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   get 'homes/show'
  get 'personnels/index'
+  get 'achievements/index'
   resources :personnels
   resources :companylicens
   resources :achievements
