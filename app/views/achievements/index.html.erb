@@ -1,3 +1,7 @@
+<%=render 'head'%>
+<%=render 'proleft'%>
+
+
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Achievements</h1>
@@ -38,14 +42,6 @@
         <td><%= achievement.nation %></td>
         <td><%= achievement.enexploit %></td>
         <td><%= achievement.cla_id %></td>
-        <td><%= achievement.bidletter %></td>
-        <td><%= achievement.protocal %></td>
-        <td><%= achievement.completcert %></td>
-        <td><%= achievement.owncert %></td>
-        <td><%= achievement.receport %></td>
-        <td><%= achievement.consortium %></td>
-        <td><%= achievement.image %></td>
-        <td><%= achievement.other %></td>
         <td><%= link_to 'Show', achievement %></td>
         <td><%= link_to 'Edit', edit_achievement_path(achievement) %></td>
         <td><%= link_to 'Destroy', achievement, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -1,16 +1,32 @@
+# encoding: utf-8
 class PersonnelsController < ApplicationController
   before_action :set_personnel, only: [:show, :edit, :update, :destroy]
 
   # GET /personnels
   # GET /personnels.json
+
+
   def index
-    @personnels = Personnel.all
+        if !params[:search]||params[:search]==""
+          @personnels = Personnel.all
+        else
+          @personnels = Personnel.find_by_sql("select * from personnels where Sex like '%"+params[:search]+"%' or Name like '%"+params[:search]+"%' or professional like '%"+params[:search]+"%' or Degree like '%"+params[:search]+"%' or School like '%"+params[:search]+"%' or Protitle like '%"+params[:search]+"%' ")
+
+        end
+
   end
 
   # GET /personnels/1
   # GET /personnels/1.json
   def show
   end
+
+
+
+
+
+
+
 
   # GET /personnels/new
   def new

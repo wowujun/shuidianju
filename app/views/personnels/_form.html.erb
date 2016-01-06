@@ -1,33 +1,37 @@
+<script type="text/javascript" language="javascript">
+    function readURL(input,imgid) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
 
+            reader.onload = function (e) {
+                $('.'+imgid)
+                        .attr('src', e.target.result)
+                //.width(300)
+                //.height(200);
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
 
+    function sexselect(){
+        document.getElementById("personnel_sex").value=document.getElementById("sex").value;
+    }
 
-
-
-
-
-
-
-
-
-
+</script>
 
 
 <!-- main container -->
 <div class="content">
-
-
 
   <div class="container-fluid">
     <div id="pad-wrapper" class="new-user">
       <div class="row-fluid" style="margin-bottom: 20px;margin-top: -30px ">
         <h3>人员信息</h3>
       </div>
-
       <%= form_for(@personnel) do |f| %>
           <% if @personnel.errors.any? %>
               <div id="error_explanation">
                 <h2><%= pluralize(@personnel.errors.count, "error") %> prohibited this personnel from being saved:</h2>
-
                 <ul>
                   <% @personnel.errors.full_messages.each do |message| %>
                       <li><%= message %></li>
@@ -37,110 +41,119 @@
           <% end %>
       <div class="row-fluid form-wrapper">
         <!-- left column -->
-        <div class="span9 with-sidebar">
+        <div class="with-sidebar">
           <div class="container">
-            <form class="new_user_form inline-input" />
-            <div class="span12 field-box">
+            <div class="field-box1">
               <label><%= f.label :姓名 %></label>
               <%= f.text_field :name ,class:"span9"%>
             </div>
-            <div class="span12 field-box">
-              <label><%= f.label :sex %></label>
+            <div class="field-box1">
+              <label><%= f.label :性别 %></label>
+              <%= f.hidden_field :sex,value:1%>
               <div class="ui-select span5">
-                <select>
-                  <option value="1" />男
-                  <option value="2" />女
+                <select id="sex" class="form-control" type="text" onchange="sexselect()">
+                  <option value="1">男</option>
+                  <option value="2">女</option>
                 </select>
               </div>
             </div>
-            <div class="span12 field-box">
-              <label><%= f.label :birthday %></label>
-              <%= f.datetime_select :birthday ,:class =>"form-control"%>
+            <div class="field-box">
+              <label><%= f.label :生日 %></label>
+              <%= f.date_select :birthday ,:class =>"form-control"%>
             </div>
             <div class="span12 field-box">
-              <label><%= f.label :worktime %></label>
-              <%= f.datetime_select :worktime %>
+              <label><%= f.label :工作时间 %></label>
+              <%= f.date_select :worktime%>
             </div>
-            <div class="span12 field-box">
-              <label> <%= f.label :professional %></label>
+            <div class="field-box2">
+              <label> <%= f.label :专业 %></label>
       <%= f.text_field :professional ,class:"span9"%>
             </div>
-            <div class="span12 field-box">
-              <label><%= f.label :degree %></label>
+            <div class="field-box2">
+              <label><%= f.label :学历 %></label>
      <%= f.text_field :degree ,class:"span9" %>
             </div>
-            <div class="span12 field-box">
-              <%= f.label :school %></label>
+
+            <div class="field-box">
+              <%= f.label :学校 %></label>
               <%= f.text_field :school ,class:"span9" %>
             </div>
-            <div class="span12 field-box">
-              <label><%= f.label :protitle %></label>
-              <%= f.text_field :protitle ,class:"span9" %>
 
+            <div class="field-box">
+              <label><%= f.label :职称 %></label>
+              <%= f.text_field :protitle ,class:"span9" %>
+            </div>
+            <div class="field-box">
+              <h3>附件：</h3>
+            </div>
+            <div class="field-box">
+              <label> <%= f.label :毕业学校 %></label>
+              <%= f.file_field :diploma ,:onchange => "readURL(this,'img1')" %>
+              <%if !@personnel.diploma %>
+                  <img style="margin-left: 110px" class="img1" width="200px" height="150px"  src=<%= @personnel.diploma.url%> />
+              <%else%>
+                  <img style="margin-left: 110px" class="img1" width="200px" height="150px"  src=<%=image_path('noimage.png')%> />
+              <%end%>
             </div>
             <div class="span12 field-box">
-              <label> <%= f.label :diploma %></label>
-              <%= f.text_area :diploma ,class:"span9" %>
+              <label> <%= f.label :学历证 %></label>
+              <%= f.file_field :acdegree ,:onchange => "readURL(this,'img2')"%>
+              <%if !@personnel.acdegree%>
+                  <img style="margin-left: 110px" class="img2" width="200px" height="150px"  src=<%= @personnel.acdegree.url%> />
+              <%else%>
+                  <img style="margin-left: 110px" class="img2" width="200px" height="150px"  src=<%= image_path('noimage.png')%> />
+              <%end%>
             </div>
             <div class="span12 field-box">
-              <label> <%= f.label :acdegree %></label>
-              <%= f.text_area :acdegree ,class:"span9" %>
+              <%= f.label :资格证 %></label>
+              <%= f.file_field :qualit ,:onchange => "readURL(this,'img3')" %>
+              <%if !@personnel.qualit%>
+                  <img style="margin-left: 110px" class="img3" width="200px" height="150px"  src=<%= @personnel.qualit.url%> />
+              <%else%>
+                  <img style="margin-left: 110px" class="img3" width="200px" height="150px"  src=<%= image_path('noimage.png')%> />
+              <%end%>
             </div>
             <div class="span12 field-box">
-              <%= f.label :qualit %></label>
-              <%= f.text_area :qualit ,class:"span9" %>
+              <%= f.label :身份证 %></label>
+              <%= f.file_field :idcart  ,:onchange => "readURL(this,'img4')"%>
+              <%if !@personnel.idcart%>
+                  <img style="margin-left: 110px" class="img4" width="200px" height="150px"  src=<%= @personnel.idcart.url%> />
+              <%else%>
+                  <img style="margin-left: 110px" class="img4" width="200px" height="150px"  src=<%= image_path('noimage.png')%> />
+              <%end%>
             </div>
             <div class="span12 field-box">
-              <%= f.label :idcart %></label>
-              <%= f.text_area :idcart  ,class:"span9" %>
+              <label> <%= f.label :安全证 %></label>
+              <%= f.file_field :safecert ,:onchange => "readURL(this,'img5')"%>
+              <%if !@personnel.safecert%>
+                  <img style="margin-left: 110px" class="img5" width="200px" height="150px"  src=<%= @personnel.safecert.url%> />
+              <%else%>
+                  <img style="margin-left: 110px" class="img5" width="200px" height="150px"  src=<%= image_path('noimage.png')%> />
+              <%end%>
             </div>
             <div class="span12 field-box">
-              <label> <%= f.label :safecert %></label>
-              <%= f.text_area :safecert ,class:"span9" %>
+              <label><%= f.label :公证材料 %></label>
+              <%= f.file_field :notary ,:onchange => "readURL(this,'img6')"%>
+              <%if !@personnel.notary%>
+                  <img style="margin-left: 110px" class="img6" width="200px" height="150px"  src=<%= @personnel.notary.url%> />
+              <%else%>
+                  <img style="margin-left: 110px" class="img6" width="200px" height="150px"  src=<%= image_path('noimage.png')%> />
+              <%end%>
             </div>
             <div class="span12 field-box">
-              <label><%= f.label :notary %></label>
-              <%= f.text_area :notary ,class:"span9" %>
-            </div>
-            <div class="span12 field-box">
-              <label><%= f.label :other %></label>
+              <label><%= f.label :其它 %></label>
               <%= f.text_area :other ,class:"span9" %>
             </div>
-
-
             <div class="span11 field-box actions">
-
               <div class="actions">
                 <%= f.submit :"确定", class:"btn-glow primary" %>
               </div>
-
             </div>
-            </form>
           </div>
-        </div>
-
-        <!-- side right column -->
-        <div class="span3 form-sidebar pull-right">
-          <div class="btn-group toggle-inputs hidden-tablet">
-            <button class="glow left active" data-input="inline">INLINE INPUTS</button>
-            <button class="glow right" data-input="normal">NORMAL INPUTS</button>
-          </div>
-          <div class="alert alert-info hidden-tablet">
-            <i class="icon-lightbulb pull-left"></i>
-            Click above to see difference between inline and normal inputs on a form
-          </div>
-          <h6>Sidebar text for instructions</h6>
-          <p>Add multiple users at once</p>
-          <p>Choose one of the following file types:</p>
-          <ul>
-            <li><a href="#">Upload a vCard file</a></li>
-            <li><a href="#">Import from a CSV file</a></li>
-            <li><a href="#">Import from an Excel file</a></li>
-          </ul>
         </div>
       </div>
     </div>
   </div>
 </div>
           <%end%>
-<!-- end main container -->
+
