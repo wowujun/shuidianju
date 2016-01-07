@@ -16,6 +16,8 @@ class CreateAchievements < ActiveRecord::Migration
       t.text :owncert
       t.text :receport
       t.text :consortium
+      t.text :retrecord
+      t.text :notary
       t.text :image
       t.text :other
 

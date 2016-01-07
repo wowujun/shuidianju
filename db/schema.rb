@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(version: 20151209060532) do
     t.text     "owncert",     limit: 65535
     t.text     "receport",    limit: 65535
     t.text     "consortium",  limit: 65535
+    t.text     "retrecord",   limit: 65535
+    t.text     "notary",      limit: 65535
     t.text     "image",       limit: 65535
     t.text     "other",       limit: 65535
     t.datetime "created_at",                null: false

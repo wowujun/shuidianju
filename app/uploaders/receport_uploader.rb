@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-class NotaryUploader < CarrierWave::Uploader::Base
+class ReceportUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick

@@ -7,8 +7,7 @@ class AchievementsController < ApplicationController
     if !params[:search]||params[:search]==""
       @achievements  = Achievement.all
     else
-      @achievements  = Achievement.find_by_sql("select * from achievements where Sex like '%"+params[:search]+"%' or Name like '%"+params[:search]+"%' or professional like '%"+params[:search]+"%' or Degree like '%"+params[:search]+"%' or School like '%"+params[:search]+"%' or Protitle like '%"+params[:search]+"%' ")
-
+      @achievements  = Achievement.find_by_sql("select * from achievements where Projectitem like '%"+params[:search]+"%' or Proabstract like '%"+params[:search]+"%' or contracla like '%"+params[:search]+"%' or enexploit like '%"+params[:search]+"%' or nation like '%"+params[:search]+"%'")
     end
   end
 
@@ -74,6 +73,6 @@ class AchievementsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def achievement_params
-      params.require(:achievement).permit(:projectitem, :time, :contractsum, :owner, :proabstract, :contractcla, :nation, :enexploit, :cla_id, :bidletter, :protocal, :completcert, :owncert, :receport, :consortium, :image, :other)
+      params.require(:achievement).permit(:projectitem, :time, :contractsum, :owner, :proabstract, :contractcla, :nation, :enexploit, :cla_id, :bidletter, :protocal, :completcert, :owncert, :receport, :consortium,:retrecord,:notary, :image, :other)
     end
 end

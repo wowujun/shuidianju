@@ -1,85 +1,200 @@
-<%= form_for(@achievement) do |f| %>
-  <% if @achievement.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@achievement.errors.count, "error") %> prohibited this achievement from being saved:</h2>
+<script type="text/javascript" language="JavaScript">
+    function xiangmuleixingselect(){
+        document.getElementById("achievement_cla_id").value=document.getElementById("claid").value;
+    }
 
-      <ul>
-      <% @achievement.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :projectitem %><br>
-    <%= f.text_field :projectitem %>
-  </div>
-  <div class="field">
-    <%= f.label :time %><br>
-    <%= f.text_field :time %>
-  </div>
-  <div class="field">
-    <%= f.label :contractsum %><br>
-    <%= f.text_field :contractsum %>
-  </div>
-  <div class="field">
-    <%= f.label :owner %><br>
-    <%= f.text_field :owner %>
-  </div>
-  <div class="field">
-    <%= f.label :proabstract %><br>
-    <%= f.text_field :proabstract %>
-  </div>
-  <div class="field">
-    <%= f.label :contractcla %><br>
-    <%= f.number_field :contractcla %>
-  </div>
-  <div class="field">
-    <%= f.label :nation %><br>
-    <%= f.text_field :nation %>
-  </div>
-  <div class="field">
-    <%= f.label :enexploit %><br>
-    <%= f.text_field :enexploit %>
-  </div>
-  <div class="field">
-    <%= f.label :cla_id %><br>
-    <%= f.number_field :cla_id %>
-  </div>
-  <div class="field">
-    <%= f.label :bidletter %><br>
-    <%= f.text_area :bidletter %>
-  </div>
-  <div class="field">
-    <%= f.label :protocal %><br>
-    <%= f.text_area :protocal %>
-  </div>
-  <div class="field">
-    <%= f.label :completcert %><br>
-    <%= f.text_area :completcert %>
-  </div>
-  <div class="field">
-    <%= f.label :owncert %><br>
-    <%= f.text_area :owncert %>
-  </div>
-  <div class="field">
-    <%= f.label :receport %><br>
-    <%= f.text_area :receport %>
-  </div>
-  <div class="field">
-    <%= f.label :consortium %><br>
-    <%= f.text_area :consortium %>
-  </div>
-  <div class="field">
-    <%= f.label :image %><br>
-    <%= f.text_area :image %>
-  </div>
-  <div class="field">
-    <%= f.label :other %><br>
-    <%= f.text_area :other %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+
+    function readURL(input,imgid) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('.'+imgid)
+                        .attr('src', e.target.result)
+                //.width(300)
+                //.height(200);
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<!-- main container -->
+<div class="content">
+
+  <div class="container-fluid">
+    <div id="pad-wrapper" class="new-user">
+      <div class="row-fluid" style="margin-bottom: 20px;margin-top: -30px ">
+        <h3>业绩信息</h3>
+      </div>
+      <%= form_for(@achievement) do |f| %>
+          <% if @achievement.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(@achievement.errors.count, "error") %> prohibited this personnel from being saved:</h2>
+                <ul>
+                  <% @achievement.errors.full_messages.each do |message| %>
+                      <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+          <% end %>
+          <div class="row-fluid form-wrapper">
+            <!-- left column -->
+            <div class="with-sidebar">
+              <div class="container">
+                <div class="field-box1">
+                  <label><%= f.label :项目名称 %></label>
+                  <%= f.text_field :projectitem ,class:"span9"%>
+                </div>
+                <div class="field-box1">
+                  <label><%= f.label :工期 %></label>
+                  <%= f.text_field :time%>年
+                </div>
+                <div class="field-box1">
+                  <label><%= f.label :合同额%></label>
+                  <%= f.text_field :contractsum ,class:"span4"%>万元
+                </div>
+                <div class="field-box1">
+                  <label><%= f.label :业主 %></label>
+                  <%= f.text_field :owner%>
+                </div>
+                <div class="field-box2">
+                  <label> <%= f.label :项目简介 %></label>
+                  <%= f.text_field :proabstract ,class:"span9"%>
+                </div>
+                <div class="field-box2">
+                  <label><%= f.label :合同类型 %></label>
+                  <%= f.text_field :contractcla ,class:"span9" %>
+                </div>
+
+                <div class="field-box">
+                  <%= f.label :国家 %></label>
+                  <%= f.text_field :nation ,class:"span9" %>
+                </div>
+
+                <div class="field-box">
+                  <label><%= f.label :实施单位 %></label>
+                  <%= f.text_field :enexploit ,class:"span9" %>
+                </div>
+                <div class="field-box">
+                  <label><%= f.label :项目类型 %></label>
+                  <%= f.hidden_field :cla_id ,value:1,class:"span9" %>
+                  <% @clas = Cla.all%>
+                  <select id="claid" class="span2" type="text" onchange="xiangmuleixingselect()">
+                    <%= @clas.each do |f| %>
+                        <option value=<%=f.id%>><%=f.name%></option>
+                    <%end%>
+                  </select>
+                </div>
+                <div class="field-box">
+                  <h3>附件：</h3>
+                </div>
+                <div class="field-box">
+                  <label> <%= f.label :中标函 %></label>
+                  <%= f.file_field :bidletter ,:onchange => "readURL(this,'img1')" %>
+                  <%if !@achievement.bidletter %>
+                      <img style="margin-left: 110px" class="img1" width="200px" height="150px"  src=<%= @achievement.bidletter.url%> />
+                  <%else%>
+                      <img style="margin-left: 110px" class="img1" width="200px" height="150px"  src=<%=image_path('noimage.png')%> />
+                  <%end%>
+                </div>
+                <div class="span12 field-box">
+                  <label> <%= f.label :协议 %></label>
+                  <%= f.file_field :protocal ,:onchange => "readURL(this,'img2')"%>
+                  <%if !@achievement.protocal%>
+                      <img style="margin-left: 110px" class="img2" width="200px" height="150px"  src=<%= @achievement.protocal.url%> />
+                  <%else%>
+                      <img style="margin-left: 110px" class="img2" width="200px" height="150px"  src=<%= image_path('noimage.png')%> />
+                  <%end%>
+                </div>
+                <div class="span12 field-box">
+                  <%= f.label :完工证明 %></label>
+                  <%= f.file_field :completcert ,:onchange => "readURL(this,'img3')" %>
+                  <%if !@achievement.completcert%>
+                      <img style="margin-left: 110px" class="img3" width="200px" height="150px"  src=<%= @achievement.completcert.url%> />
+                  <%else%>
+                      <img style="margin-left: 110px" class="img3" width="200px" height="150px"  src=<%= image_path('noimage.png')%> />
+                  <%end%>
+                </div>
+                <div class="span12 field-box">
+                  <%= f.label :业主证明 %></label>
+                  <%= f.file_field :owncert  ,:onchange => "readURL(this,'img4')"%>
+                  <%if !@achievement.owncert%>
+                      <img style="margin-left: 110px" class="img4" width="200px" height="150px"  src=<%= @achievement.owncert.url%> />
+                  <%else%>
+                      <img style="margin-left: 110px" class="img4" width="200px" height="150px"  src=<%= image_path('noimage.png')%> />
+                  <%end%>
+                </div>
+                <div class="span12 field-box">
+                  <label> <%= f.label :验收报告 %></label>
+                  <%= f.file_field :receport ,:onchange => "readURL(this,'img5')"%>
+                  <%if !@achievement.receport%>
+                      <img style="margin-left: 110px" class="img5" width="200px" height="150px"  src=<%= @achievement.receport.url%> />
+                  <%else%>
+                      <img style="margin-left: 110px" class="img5" width="200px" height="150px"  src=<%= image_path('noimage.png')%> />
+                  <%end%>
+                </div>
+                <div class="span12 field-box">
+                  <label><%= f.label :联营体协议 %></label>
+                  <%= f.file_field :consortium ,:onchange => "readURL(this,'img6')"%>
+                  <%if !@achievement.consortium%>
+                      <img style="margin-left: 110px" class="img6" width="200px" height="150px"  src=<%= @achievement.consortium.url%> />
+                  <%else%>
+                      <img style="margin-left: 110px" class="img6" width="200px" height="150px"  src=<%= image_path('noimage.png')%> />
+                  <%end%>
+                </div>
+                <div class="span12 field-box">
+                  <label><%= f.label :回访记录 %></label>
+                  <%= f.file_field :retrecord ,:onchange => "readURL(this,'img7')"%>
+                  <%if !@achievement.retrecord%>
+                      <img style="margin-left: 110px" class="img6" width="200px" height="150px"  src=<%= @achievement.retrecord.url%> />
+                  <%else%>
+                      <img style="margin-left: 110px" class="img6" width="200px" height="150px"  src=<%= image_path('noimage.png')%> />
+                  <%end%>
+                </div>
+                <div class="span12 field-box">
+                  <label><%= f.label :公证材料 %></label>
+                  <%= f.file_field :notary ,:onchange => "readURL(this,'img8')"%>
+                  <%if !@achievement.notary%>
+                      <img style="margin-left: 110px" class="img6" width="200px" height="150px"  src=<%= @achievement.notary.url%> />
+                  <%else%>
+                      <img style="margin-left: 110px" class="img6" width="200px" height="150px"  src=<%= image_path('noimage.png')%> />
+                  <%end%>
+                </div>
+                <div class="span12 field-box">
+                  <label><%= f.label :图片 %></label>
+                  <%= f.file_field :image ,:onchange => "readURL(this,'img9')"%>
+                  <%if !@achievement.image%>
+                      <img style="margin-left: 110px" class="img6" width="200px" height="150px"  src=<%= @achievement.image.url%> />
+                  <%else%>
+                      <img style="margin-left: 110px" class="img6" width="200px" height="150px"  src=<%= image_path('noimage.png')%> />
+                  <%end%>
+                </div>
+                <div class="span12 field-box">
+                  <label><%= f.label :其它 %></label>
+                  <%= f.text_area :other ,class:"span9" %>
+                </div>
+                <div class="span11 field-box actions">
+                  <div class="actions">
+                    <%= f.submit :"确定", class:"btn-glow primary" %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+          </div>
+          </div>
+      <%end%>
