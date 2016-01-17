@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151209060532) do
+ActiveRecord::Schema.define(version: 20160114082627) do
 
   create_table "achievements", force: :cascade do |t|
     t.string   "projectitem", limit: 255
@@ -35,6 +35,14 @@ ActiveRecord::Schema.define(version: 20151209060532) do
     t.text     "other",       limit: 65535
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+  end
+
+  create_table "admins", force: :cascade do |t|
+    t.string   "username",        limit: 255
+    t.string   "login",           limit: 255
+    t.string   "password_digest", limit: 255
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "clas", force: :cascade do |t|
@@ -77,6 +85,7 @@ ActiveRecord::Schema.define(version: 20151209060532) do
     t.string   "protitle",     limit: 255
     t.text     "diploma",      limit: 65535
     t.text     "acdegree",     limit: 65535
+    t.text     "titlecert",    limit: 65535
     t.text     "qualit",       limit: 65535
     t.text     "idcart",       limit: 65535
     t.text     "safecert",     limit: 65535

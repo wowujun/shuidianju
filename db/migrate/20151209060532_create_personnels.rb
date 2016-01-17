@@ -11,6 +11,7 @@ class CreatePersonnels < ActiveRecord::Migration
       t.string :protitle
       t.text :diploma
       t.text :acdegree
+      t.text :titlecert
       t.text :qualit
       t.text :idcart
       t.text :safecert

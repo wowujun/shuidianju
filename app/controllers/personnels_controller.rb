@@ -85,6 +85,6 @@ class PersonnelsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def personnel_params
-      params.require(:personnel).permit(:name, :sex, :birthday, :worktime, :professional, :degree, :school, :protitle, :diploma, :acdegree, :qualit, :idcart, :safecert, :notary, :other)
+      params.require(:personnel).permit(:name, :sex, :birthday, :worktime, :professional, :degree, :school, :protitle, :diploma, :acdegree, :titlecert,:qualit, :idcart, :safecert, :notary, :other)
     end
 end

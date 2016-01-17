@@ -7,5 +7,5 @@ class Achievement < ActiveRecord::Base
   mount_uploader :consortium,ConsortiumUploader
   mount_uploader :retrecord,RetrecordUploader
   mount_uploader :notary,NotaryUploader
-      mount_uploader :image,ImageUploader
+  mount_uploader :image,ImageUploader
 end

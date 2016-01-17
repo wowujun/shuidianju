@@ -1,79 +1,137 @@
-<p id="notice"><%= notice %></p>
+<%=render 'head'%>
+<%params[:left]="per"%>
+<%if params[:left]=="per" %>
+    <%=render 'left'%>
+<%end%>
 
-<p>
-  <strong>Name:</strong>
-  <%= @personnel.name %>
-</p>
 
-<p>
-  <strong>Sex:</strong>
-  <%= @personnel.sex %>
-</p>
 
-<p>
-  <strong>Birthday:</strong>
-  <%= @personnel.birthday %>
-</p>
+<!-- main container -->
+<div class="content">
 
-<p>
-  <strong>Worktime:</strong>
-  <%= @personnel.worktime %>
-</p>
+  <!-- settings changer -->
 
-<p>
-  <strong>Professional:</strong>
-  <%= @personnel.professional %>
-</p>
+  <div class="container-fluid">
+    <div id="pad-wrapper" class="user-profile">
+      <!-- header -->
+      <div class="row-fluid" style="margin-top: -25px">
 
-<p>
-  <strong>Degree:</strong>
-  <%= @personnel.degree %>
-</p>
+          <h3 class="name"><%= @personnel.name %></h3>
+        <br>
+        <%if @personnel.sex==1%>
+            <span class="area">男</span>
+            <%else%>
+            <span class="area">女</span>
+            <%end%>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <span class="area"> <%= @personnel.birthday.strftime("%Y-%m-%d") %></span>
+        <%= link_to "", edit_personnel_path(@personnel),  class:"btn-flat icon large icon-pencil pull-right", title: "编辑" %>
+        <%= link_to '',@personnel , method: :delete, data: { confirm: '确认删除？' },class:"btn-flat icon large icon-trash   pull-right", title:"删除" %>
 
-<p>
-  <strong>School:</strong>
-  <%= @personnel.school %>
-</p>
+      </div>
 
-<p>
-  <strong>Protitle:</strong>
-  <%= @personnel.protitle %>
-</p>
+      <div class="row-fluid profile">
+        <!-- bio, new note & orders column -->
+        <div class="span9 bio">
+          <div class="profile-box">
+            <h6>基本信息</h6>
+            <br />
+            <!-- recent orders table -->
+            <table class="table table-hover">
+              <thead>
+              <tr>
+                <th class="span2">
+                  专业
+                </th>
+                <th class="span3">
+                  <span class="line"></span>
+                  学历
+                </th>
+                <th class="span3">
+                  <span class="line"></span>
+                  学校
+                </th>
+                <th class="span3">
+                  <span class="line"></span>
+                  职称
+                </th>
+              </tr>
+              </thead>
+              <tbody>
+              <!-- row -->
+              <tr class="first">
+                <td>
+                  <%= @personnel.professional %>
+                </td>
+                <td>
+                  <%= @personnel.degree %>
+                </td>
+                <td>
+                  <%= @personnel.school %>
+                </td>
+                <td>
+                  <%= @personnel.protitle %>
+                </td>
+              </tr>
+              </tbody>
+            </table>
 
-<p>
-  <strong>Diploma:</strong>
-  <%= @personnel.diploma %>
-</p>
+            <!-- new comment form -->
+            <div class="span12 section comment"  style="margin-top: -30px">
+              <h6>附件图片:</h6>
+              <p>
+                <strong>Diploma:</strong>
+                <%= image_tag @personnel.diploma.url %>
+              </p>
+              <p>
+                <strong>Acdegree:</strong>
+                <%= image_tag @personnel.acdegree.url %>
+              </p>
 
-<p>
-  <strong>Acdegree:</strong>
-  <%= @personnel.acdegree %>
-</p>
+              <p>
+                <strong>Titlecert:</strong>
+                <%= image_tag @personnel.titlecert.url %>
+              </p>
 
-<p>
-  <strong>Qualit:</strong>
-  <%= @personnel.qualit %>
-</p>
+              <p>
+                <strong>Qualit:</strong>
+                <%= image_tag @personnel.qualit.url %>
+              </p>
 
-<p>
-  <strong>Idcart:</strong>
-  <%= @personnel.idcart %>
-</p>
+              <p>
+                <strong>Idcart:</strong>
+                <%= image_tag @personnel.idcart.url %>
+              </p>
 
-<p>
-  <strong>Safecert:</strong>
-  <%= @personnel.safecert %>
-</p>
+              <p>
+                <strong>Safecert:</strong>
+                <%= image_tag @personnel.safecert.url %>
+              </p>
 
-<p>
-  <strong>Notary:</strong>
-  <%= @personnel.notary %>
-</p>
+              <p>
+                <strong>Notary:</strong>
+                <%= image_tag @personnel.notary.url %>
+              </p>
+            </div>
+          </div>
+        </div>
 
-<p>
-  <strong>Other:</strong>
-  <%= @personnel.other %>
-</p>
+        <!-- side address column -->
+        <div class="span3 address pull-right">
+          <h6></h6>
+          <ul>
+            <li>Worktime: </li>
+            <li><%= @personnel.worktime %></li>
+            <li>other:</li>
+            <li class="ico-li">
+              <%= @personnel.other %>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end main container -->
 
-<%= link_to 'Edit', edit_personnel_path(@personnel) %> |
-<%= link_to 'Back', personnels_path %>
+

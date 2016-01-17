@@ -59,11 +59,11 @@
             </div>
             <div class="field-box">
               <label><%= f.label :生日 %></label>
-              <%= f.date_select :birthday ,:class =>"form-control"%>
+              <%= f.date_select :birthday,:start_year=>1970 ,:class =>"form-control"%>
             </div>
             <div class="span12 field-box">
               <label><%= f.label :工作时间 %></label>
-              <%= f.date_select :worktime%>
+              <%= f.date_select :worktime %>
             </div>
             <div class="field-box2">
               <label> <%= f.label :专业 %></label>
@@ -105,39 +105,48 @@
               <%end%>
             </div>
             <div class="span12 field-box">
-              <%= f.label :资格证 %></label>
-              <%= f.file_field :qualit ,:onchange => "readURL(this,'img3')" %>
-              <%if !@personnel.qualit%>
-                  <img style="margin-left: 110px" class="img3" width="200px" height="150px"  src=<%= @personnel.qualit.url%> />
+              <label> <%= f.label :职称证 %></label>
+              <%= f.file_field :titlecert ,:onchange => "readURL(this,'img3')"%>
+              <%if !@personnel.titlecert %>
+                  <img style="margin-left: 110px" class="img3" width="200px" height="150px"  src=<%= @personnel.titlecert.url%> />
               <%else%>
                   <img style="margin-left: 110px" class="img3" width="200px" height="150px"  src=<%= image_path('noimage.png')%> />
               <%end%>
             </div>
             <div class="span12 field-box">
-              <%= f.label :身份证 %></label>
-              <%= f.file_field :idcart  ,:onchange => "readURL(this,'img4')"%>
-              <%if !@personnel.idcart%>
-                  <img style="margin-left: 110px" class="img4" width="200px" height="150px"  src=<%= @personnel.idcart.url%> />
+              <%= f.label :资格证 %></label>
+              <%= f.file_field :qualit ,:onchange => "readURL(this,'img4')" %>
+              <%if !@personnel.qualit%>
+                  <img style="margin-left: 110px" class="img4" width="200px" height="150px"  src=<%= @personnel.qualit.url%> />
               <%else%>
                   <img style="margin-left: 110px" class="img4" width="200px" height="150px"  src=<%= image_path('noimage.png')%> />
               <%end%>
             </div>
             <div class="span12 field-box">
-              <label> <%= f.label :安全证 %></label>
-              <%= f.file_field :safecert ,:onchange => "readURL(this,'img5')"%>
-              <%if !@personnel.safecert%>
-                  <img style="margin-left: 110px" class="img5" width="200px" height="150px"  src=<%= @personnel.safecert.url%> />
+              <%= f.label :身份证 %></label>
+              <%= f.file_field :idcart  ,:onchange => "readURL(this,'img5')"%>
+              <%if !@personnel.idcart%>
+                  <img style="margin-left: 110px" class="img5" width="200px" height="150px"  src=<%= @personnel.idcart.url%> />
               <%else%>
                   <img style="margin-left: 110px" class="img5" width="200px" height="150px"  src=<%= image_path('noimage.png')%> />
               <%end%>
             </div>
             <div class="span12 field-box">
-              <label><%= f.label :公证材料 %></label>
-              <%= f.file_field :notary ,:onchange => "readURL(this,'img6')"%>
-              <%if !@personnel.notary%>
-                  <img style="margin-left: 110px" class="img6" width="200px" height="150px"  src=<%= @personnel.notary.url%> />
+              <label> <%= f.label :安全证 %></label>
+              <%= f.file_field :safecert ,:onchange => "readURL(this,'img6')"%>
+              <%if !@personnel.safecert%>
+                  <img style="margin-left: 110px" class="img6" width="200px" height="150px"  src=<%= @personnel.safecert.url%> />
               <%else%>
                   <img style="margin-left: 110px" class="img6" width="200px" height="150px"  src=<%= image_path('noimage.png')%> />
+              <%end%>
+            </div>
+            <div class="span12 field-box">
+              <label><%= f.label :公证材料 %></label>
+              <%= f.file_field :notary ,:onchange => "readURL(this,'img7')"%>
+              <%if !@personnel.notary%>
+                  <img style="margin-left: 110px" class="img7" width="200px" height="150px"  src=<%= @personnel.notary.url%> />
+              <%else%>
+                  <img style="margin-left: 110px" class="img7" width="200px" height="150px"  src=<%= image_path('noimage.png')%> />
               <%end%>
             </div>
             <div class="span12 field-box">
