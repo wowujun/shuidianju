@@ -29,6 +29,7 @@ gem 'bootstrap-sass'
 gem 'carrierwave'
 
 gem 'mini_magick'
+gem 'bcrypt-ruby'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

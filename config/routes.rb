@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :tests
   get 'homes/index'
 
   get 'homes/show'
