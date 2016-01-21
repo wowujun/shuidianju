@@ -80,7 +80,7 @@
                   <td><%= personnel.degree %></td>
                   <td><%= personnel.school %></td>
                   <td><%= personnel.protitle %></td>
-                  <td width="100px" align="center"><%= link_to "", edit_personnel_path(personnel),  class:"icon-pencil usricons", title: "编辑" %>&nbsp;&nbsp;
+                  <td width="100px" align="center"><%= link_to "", personnel,  class:"icon-eye-open usricons", title: "查看" %>&nbsp;&nbsp;<%= link_to "", edit_personnel_path(personnel),  class:"icon-pencil usricons", title: "编辑" %>&nbsp;&nbsp;
                     <%= link_to '', personnel, method: :delete, data: { confirm: '确认删除？' },class:"icon-trash usricons", title:"删除" %></td>
             </tr>
             <% end %>

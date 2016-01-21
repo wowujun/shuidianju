@@ -1,5 +1,6 @@
 class AdminsController < ApplicationController
 
+  before_action :set_admin, only: [:show, :edit, :update, :destroy]
 
   def index
     @admins = Admin.all
@@ -72,6 +73,8 @@ class AdminsController < ApplicationController
     @admin = Admin.find(params[:id])
 
   end
+
+
 
   def admin_params
     params.require(:admin).permit(:username, :login, :password, :password_confirmation)
