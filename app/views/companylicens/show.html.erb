@@ -1,9 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Compan:</strong>
-  <%= @companylicen.compan_id %>
-</p>
+
 
 <p>
   <strong>Buslicen:</strong>
@@ -26,68 +23,79 @@
 </p>
 
 <p>
-  <strong>Safelicen:</strong>
-  <%= @companylicen.safelicen %>
+  <strong>安全许可证:</strong>
+  <%= image_tag @companylicen.safelicen.url %>
 </p>
 
 <p>
-  <strong>Forconmanquacert:</strong>
-  <%= @companylicen.forconmanquacert %>
+  <strong>对外承包经营资格证证:</strong>
+
+  <%= image_tag @companylicen.forconmanquacert.url %>
 </p>
 
 <p>
-  <strong>Statut:</strong>
-  <%= @companylicen.statut %>
+  <strong>章程:</strong>
+
+  <%= image_tag @companylicen.statut.url %>
+
 </p>
 
 <p>
-  <strong>Threesyscert:</strong>
-  <%= @companylicen.threesyscert %>
+  <strong>三体系证书:</strong>
+
+  <%= image_tag @companylicen.threesyscert.url %>
 </p>
 
 <p>
-  <strong>Taxcert:</strong>
-  <%= @companylicen.taxcert %>
+  <strong>税务证:</strong>
+
+  <%= image_tag @companylicen.taxcert.url %>
 </p>
 
 <p>
-  <strong>Creditrat:</strong>
-  <%= @companylicen.creditrat %>
+  <strong>信用等级证:</strong>
+
+  <%= image_tag @companylicen.creditrat.url %>
 </p>
 
 <p>
-  <strong>Finastatement:</strong>
-  <%= @companylicen.finastatement %>
+  <strong>财务报表:</strong>
+
+  <%= image_tag @companylicen.finastatement.url %>
 </p>
 
 <p>
-  <strong>Orgcode:</strong>
-  <%= @companylicen.orgcode %>
+  <strong>组织机构代码证:</strong>
+
+  <%= image_tag @companylicen.orgcode.url %>
 </p>
 
 <p>
-  <strong>Nolitproof:</strong>
-  <%= @companylicen.nolitproof %>
+  <strong>无诉讼证明:</strong>
+
+  <%= image_tag @companylicen.nolitproof.url %>
 </p>
 
 <p>
-  <strong>Nobankcert:</strong>
-  <%= @companylicen.nobankcert %>
+  <strong>未破产证明:</strong>
+
+  <%= image_tag @companylicen.nobankcert.url %>
 </p>
 
 <p>
-  <strong>Comcontract:</strong>
+  <strong>公司简介:</strong>
   <%= @companylicen.comcontract %>
 </p>
 
 <p>
-  <strong>Other:</strong>
+  <strong>其它:</strong>
   <%= @companylicen.other %>
 </p>
 
 <p>
-  <strong>Certofaward:</strong>
-  <%= @companylicen.certofaward %>
+  <strong>获奖证书:</strong>
+
+  <%= image_tag @companylicen.certofaward.url %>
 </p>
 
 <%= link_to 'Edit', edit_companylicen_path(@companylicen) %> |

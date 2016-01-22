@@ -1,3 +1,21 @@
+
+
+<script language="JavaScript" type="text/javascript">
+    function readURL(input,imgid) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('.'+imgid)
+                        .attr('src', e.target.result)
+                //.width(300)
+                //.height(200);
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
+
 <%= form_for(@companylicen) do |f| %>
     <% if @companylicen.errors.any? %>
         <div id="error_explanation">
@@ -14,78 +32,169 @@
     <div class="with-sidebar">
       <div class="container">
 
-        <div class="field">
-          <%= f.label :compan_id %><br>
-          <%= f.number_field :compan_id %>
-        </div>
+
         <div class="field">
           <%= f.label :buslicen %><br>
-          <%= f.text_area :buslicen %>
+          <%= f.text_area :buslicen, class:"span8"%>
         </div>
         <div class="field">
           <%= f.label :finastate %><br>
-          <%= f.text_area :finastate %>
+          <%= f.text_area :finastate, class:"span8" %>
         </div>
         <div class="field">
           <%= f.label :qualicert %><br>
-          <%= f.text_area :qualicert %>
+          <%= f.text_area :qualicert, class:"span8" %>
         </div>
         <div class="field">
           <%= f.label :orgchart %><br>
-          <%= f.text_area :orgchart %>
+          <%= f.text_area :orgchart, class:"span8" %>
+        </div>
+
+
+        <div class="span12 field-box">
+          <label> <%= f.label :安全许可证 %></label>
+          <%= f.file_field :safelicen ,:onchange => "readURL(this,'img1')"%>
+          <%if !@companylicen.safelicen%>
+              <img style="margin-left: 110px" class="img1" width="200px" height="150px"  src=<%= @companylicen.safelicen.url%> />
+          <%else%>
+              <img style="margin-left: 110px" class="img1" width="200px" height="150px"  src=<%= image_path('noimage.png')%> />
+          <%end%>
+        </div>
+
+
+
+
+        <div class="span12 field-box">
+          <label> <%= f.label :对外承包经营资格证证 %></label>
+          <%= f.file_field :forconmanquacert ,:onchange => "readURL(this,'img2')"%>
+          <%if !@companylicen.forconmanquacert%>
+              <img style="margin-left: 110px" class="img2" width="200px" height="150px"  src=<%= @companylicen.forconmanquacert.url%> />
+          <%else%>
+              <img style="margin-left: 110px" class="img2" width="200px" height="150px"  src=<%= image_path('noimage.png')%> />
+          <%end%>
+        </div>
+
+
+
+
+
+        <div class="span12 field-box">
+          <label> <%= f.label :章程 %></label>
+          <%= f.file_field :statut ,:onchange => "readURL(this,'img3')"%>
+          <%if !@companylicen.statut%>
+              <img style="margin-left: 110px" class="img3" width="200px" height="150px"  src=<%= @companylicen.statut.url%> />
+          <%else%>
+              <img style="margin-left: 110px" class="img3" width="200px" height="150px"  src=<%= image_path('noimage.png')%> />
+          <%end%>
+        </div>
+
+
+
+        <div class="span12 field-box">
+          <label> <%= f.label :三体系证书 %></label>
+          <%= f.file_field :threesyscert ,:onchange => "readURL(this,'img4')"%>
+          <%if !@companylicen.threesyscert%>
+              <img style="margin-left: 110px" class="img4" width="200px" height="150px"  src=<%= @companylicen.threesyscert.url%> />
+          <%else%>
+              <img style="margin-left: 110px" class="img4" width="200px" height="150px"  src=<%= image_path('noimage.png')%> />
+          <%end%>
+        </div>
+
+
+
+
+
+        <div class="span12 field-box">
+          <label> <%= f.label :税务证 %></label>
+          <%= f.file_field :taxcert ,:onchange => "readURL(this,'img5')"%>
+          <%if !@companylicen.taxcert%>
+              <img style="margin-left: 110px" class="img5" width="200px" height="150px"  src=<%= @companylicen.taxcert.url%> />
+          <%else%>
+              <img style="margin-left: 110px" class="img5" width="200px" height="150px"  src=<%= image_path('noimage.png')%> />
+          <%end%>
+        </div>
+
+
+
+        <div class="span12 field-box">
+          <label> <%= f.label :信用等级证 %></label>
+          <%= f.file_field :creditrat ,:onchange => "readURL(this,'img6')"%>
+          <%if !@companylicen.creditrat%>
+              <img style="margin-left: 110px" class="img6" width="200px" height="150px"  src=<%= @companylicen.creditrat.url%> />
+          <%else%>
+              <img style="margin-left: 110px" class="img6" width="200px" height="150px"  src=<%= image_path('noimage.png')%> />
+          <%end%>
+        </div>
+
+
+
+
+        <div class="span12 field-box">
+          <label> <%= f.label :财务报表 %></label>
+          <%= f.file_field :finastatement ,:onchange => "readURL(this,'img7')"%>
+          <%if !@companylicen.finastatement%>
+              <img style="margin-left: 110px" class="img7" width="200px" height="150px"  src=<%= @companylicen.finastatement.url%> />
+          <%else%>
+              <img style="margin-left: 110px" class="img7" width="200px" height="150px"  src=<%= image_path('noimage.png')%> />
+          <%end%>
+        </div>
+
+
+
+        <div class="span12 field-box">
+          <label> <%= f.label :组织机构代码证 %></label>
+          <%= f.file_field :orgcode ,:onchange => "readURL(this,'img8')"%>
+          <%if !@companylicen.orgcode%>
+              <img style="margin-left: 110px" class="img8" width="200px" height="150px"  src=<%= @companylicen.orgcode.url%> />
+          <%else%>
+              <img style="margin-left: 110px" class="img8" width="200px" height="150px"  src=<%= image_path('noimage.png')%> />
+          <%end%>
+        </div>
+
+
+
+        <div class="span12 field-box">
+          <label> <%= f.label :无诉讼证明 %></label>
+          <%= f.file_field :nolitproof ,:onchange => "readURL(this,'img9')"%>
+          <%if !@companylicen.nolitproof%>
+              <img style="margin-left: 110px" class="img9" width="200px" height="150px"  src=<%= @companylicen.nolitproof.url%> />
+          <%else%>
+              <img style="margin-left: 110px" class="img9" width="200px" height="150px"  src=<%= image_path('noimage.png')%> />
+          <%end%>
+        </div>
+
+
+
+        <div class="span12 field-box">
+          <label> <%= f.label :未破产证明 %></label>
+          <%= f.file_field :nobankcert ,:onchange => "readURL(this,'img10')"%>
+          <%if !@companylicen.nobankcert%>
+              <img style="margin-left: 110px" class="img10" width="200px" height="150px"  src=<%= @companylicen.nobankcert.url%> />
+          <%else%>
+              <img style="margin-left: 110px" class="img10" width="200px" height="150px"  src=<%= image_path('noimage.png')%> />
+          <%end%>
+        </div>
+
+        <div class="field">
+          <%= f.label :公司简介 %><br>
+          <%= f.text_area :comcontract, class:"span8" %>
         </div>
         <div class="field">
-          <%= f.label :safelicen %><br>
-          <%= f.text_area :safelicen %>
+          <%= f.label :其它 %><br>
+          <%= f.text_area :other, class:"span8" %>
         </div>
-        <div class="field">
-          <%= f.label :forconmanquacert %><br>
-          <%= f.text_area :forconmanquacert %>
+
+
+        <div class="span12 field-box">
+          <label> <%= f.label :获奖证书 %></label>
+          <%= f.file_field :certofaward ,:onchange => "readURL(this,'img11')"%>
+          <%if !@companylicen.certofaward%>
+              <img style="margin-left: 110px" class="img11" width="200px" height="150px"  src=<%= @companylicen.certofaward.url%> />
+          <%else%>
+              <img style="margin-left: 110px" class="img11" width="200px" height="150px"  src=<%= image_path('noimage.png')%> />
+          <%end%>
         </div>
-        <div class="field">
-          <%= f.label :statut %><br>
-          <%= f.text_area :statut %>
-        </div>
-        <div class="field">
-          <%= f.label :threesyscert %><br>
-          <%= f.text_area :threesyscert %>
-        </div>
-        <div class="field">
-          <%= f.label :taxcert %><br>
-          <%= f.text_area :taxcert %>
-        </div>
-        <div class="field">
-          <%= f.label :creditrat %><br>
-          <%= f.text_area :creditrat %>
-        </div>
-        <div class="field">
-          <%= f.label :finastatement %><br>
-          <%= f.text_area :finastatement %>
-        </div>
-        <div class="field">
-          <%= f.label :orgcode %><br>
-          <%= f.text_area :orgcode %>
-        </div>
-        <div class="field">
-          <%= f.label :nolitproof %><br>
-          <%= f.text_area :nolitproof %>
-        </div>
-        <div class="field">
-          <%= f.label :nobankcert %><br>
-          <%= f.text_area :nobankcert %>
-        </div>
-        <div class="field">
-          <%= f.label :comcontract %><br>
-          <%= f.text_area :comcontract %>
-        </div>
-        <div class="field">
-          <%= f.label :other %><br>
-          <%= f.text_area :other %>
-        </div>
-        <div class="field">
-          <%= f.label :certofaward %><br>
-          <%= f.text_area :certofaward %>
-        </div>
+
         <div class="actions">
           <%= f.submit %>
         </div>

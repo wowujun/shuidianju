@@ -1,29 +1,24 @@
+<%= render "head" %>
+<%= render "left" %>
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Companylicens</h1>
 
-<table>
+
+<div class="content">
+
+  <div class="container-fluid">
+    <div id="pad-wrapper">
+<div class="table-wrapper products-table">
+  <div class="row-fluid head">
+    <div class="span12">
+
+<table class="table table-hover">
   <thead>
     <tr>
-      <th>Compan</th>
-      <th>Buslicen</th>
-      <th>Finastate</th>
-      <th>Qualicert</th>
-      <th>Orgchart</th>
-      <th>Safelicen</th>
-      <th>Forconmanquacert</th>
-      <th>Statut</th>
-      <th>Threesyscert</th>
-      <th>Taxcert</th>
-      <th>Creditrat</th>
-      <th>Finastatement</th>
-      <th>Orgcode</th>
-      <th>Nolitproof</th>
-      <th>Nobankcert</th>
-      <th>Comcontract</th>
-      <th>Other</th>
-      <th>Certofaward</th>
-      <th colspan="3"></th>
+      <th class="span5">Compan</th>
+      <th class="span5">Buslicen</th>
+      <th  class="span2">process</th>
+
     </tr>
   </thead>
 
@@ -32,30 +27,22 @@
       <tr>
         <td><%= companylicen.compan_id %></td>
         <td><%= companylicen.buslicen %></td>
-        <td><%= companylicen.finastate %></td>
-        <td><%= companylicen.qualicert %></td>
-        <td><%= companylicen.orgchart %></td>
-        <td><%= companylicen.safelicen %></td>
-        <td><%= companylicen.forconmanquacert %></td>
-        <td><%= companylicen.statut %></td>
-        <td><%= companylicen.threesyscert %></td>
-        <td><%= companylicen.taxcert %></td>
-        <td><%= companylicen.creditrat %></td>
-        <td><%= companylicen.finastatement %></td>
-        <td><%= companylicen.orgcode %></td>
-        <td><%= companylicen.nolitproof %></td>
-        <td><%= companylicen.nobankcert %></td>
-        <td><%= companylicen.comcontract %></td>
-        <td><%= companylicen.other %></td>
-        <td><%= companylicen.certofaward %></td>
-        <td><%= link_to 'Show', companylicen %></td>
-        <td><%= link_to 'Edit', edit_companylicen_path(companylicen) %></td>
-        <td><%= link_to 'Destroy', companylicen, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+        <td><%= link_to 'Show', companylicen %>
+        <%= link_to 'Edit', edit_companylicen_path(companylicen) %>
+        <%= link_to 'Destroy', companylicen, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
+      <%= link_to 'New Companylicen', new_companylicen_path,class:"pull-right" %>
+      </div>
+    </div>
+  </div>
+        </div>
+      </div>
+    </div>
 
-<%= link_to 'New Companylicen', new_companylicen_path %>
+
